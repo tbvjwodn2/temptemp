@@ -8,7 +8,7 @@ Vertex를 그리기 위해서는 이해해야 될것이 있다
 
 OpenGL API기준이다
 
-![image](https://user-images.githubusercontent.com/45751396/197693190-c6a997f0-7e0b-46b4-b190-83b605868b9c.png =100)
+![image](https://user-images.githubusercontent.com/45751396/197693190-c6a997f0-7e0b-46b4-b190-83b605868b9c.png | width=100)
 
 만약 내가 버텍스 정보 (Position, Color..)등을 갖고있다면,
 
