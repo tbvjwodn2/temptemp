@@ -30,6 +30,18 @@ Vertex Array Object(VAO)가 GPU에서 VBO를 어떻게 처리할지에 대한 �
 > The Vertex Array Object(VAO) stores how opengl should interpret a set of VBOs.
 > In short words, VBO is an array of raw data, when VAO is an array of ATTRIBUTES - an instruction for shader program how to use the data.
 
+```
+// 1. Vertex Buffer Object (VBO)만들기 
+GLuint VBO
+glGenBuffers(1, &VBO)
+
+// 2. 만든 VBO
+glBindBuffer()
+
+
+// 2. 
+```
+
 ```cpp
 // VAO 활용 순서
 // ID 생성 -> VAO객체 생성, ID바인딩, 객체 바인딩
