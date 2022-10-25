@@ -24,14 +24,25 @@ VBO를 여러개 만들어서 GPU에 놓는다고 생각해보자
 
 VBO는 그저 데이터 버퍼일 뿐이다. 지혼자 할 수 있는게 없는데
 GPU가 이 데이터를 어떻게 이용할지 명령을 내려줘야하는데, 이때 VAO가
-Vertex Array Object(VAO)가 GPU에서 VBO를 어떻게 처리할지 알려준다
+Vertex Array Object(VAO)가 GPU에서 VBO를 어떻게 처리할지에 대한 정보를 들고 있다
 
->> In short words, VBO is an array of raw data, when VAO is an array of ATTRIBUTES - an instruction for shader program how to use the data.
+> The Vertex Array Object(VAO) stores how opengl should interpret a set of VBOs.
+> In short words, VBO is an array of raw data, when VAO is an array of ATTRIBUTES - an instruction for shader program how to use the data.
 
-Vertex Array Object와 Vertex Bind Object라는게 있다
-VAO, VBO
+```
+// VAO 활용 순서
+// ID 생성 -> VAO객체 생성, ID바인딩, 객체 바인딩
 
-VAO는 
+// 1. VAO ID 준비
+GLuint vao;
+
+// 2. VAO 객체 생성 및 ID에 바인딩
+glGenVertexArrays(1, &vao);
+
+// 3. 객체 타입 바인딩
+glBindVertexArray(vao);
+
+```
 
 glGenBuffers = Buffer Object Name을 만든다
 
