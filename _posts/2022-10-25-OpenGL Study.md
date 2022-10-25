@@ -54,7 +54,7 @@ Vertexs Shader 단계에서 GPU는 메모리에 남아있는 모든 Vertex Data�
 이 메모리를 관리하는 것이 Vertex Array Object(VAO)라고 한다
 
 
-h1 쉐이더 만들기 과정 순서
+## 쉐이더 만들기 과정 순서
 ```cpp
 // 1. 쉐이더 만들기
 GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -64,4 +64,22 @@ glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 
 // 3. Machine 언어로 컴파일하기
 glCompileShader(vertexShader);
+```
+
+## 만들어진 쉐이더 OpenGL Shader 프로그램에 장착시키기
+```cpp
+// 1. Shader프로그램 만들기
+GLuint shaderProgram = glCreateProgram();
+
+// 2. 만들어진 쉐이더를 Shader Program object에 붙이기
+glAttachShader(shaderProgram, vertexShader);
+glAttachShader(shaderProgram, fragmentShader);
+
+// 3-1. GL_VERTEX_SHADER을 Program에 붙이면, vertex Processor에서 돌아갈 Excutable을 만듬
+// 3-2. GL_FRAGMENT_SHADER을 Program에 붙이면, fragment processor에서 돌아갈 Excutable을 만듬
+glLinkProgram(shaderProgram);
+
+// 4. 더 이상 필요 없어진, 메모리에 있는 Vertex Shader와 Fragment Shader를 지워주기
+glDeleteShader(vertexShader);
+glDeleteShader(fragmentShader);
 ```
