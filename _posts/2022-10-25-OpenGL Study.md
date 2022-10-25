@@ -55,7 +55,13 @@ Vertexs Shader 단계에서 GPU는 메모리에 남아있는 모든 Vertex Data�
 
 
 쉐이더 만들기 과정 순서
-| 순서 | 만들기 |
-|---|---|
-| 빈 쉐이더 만들기 - glCreateShader |   ex) glCreateShader(GL_VERTEX_SHADER)|
-| 빈 쉐이더에 GLSL로 작성한 쉐이더 코드 넣기 glShaderSource   | ex)  |
+```cpp
+// 1. 쉐이더 만들기
+GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+
+// 2. GLSL로 작성한 쉐이더 코드 넣기
+glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+
+// 3. Machine 언어로 컴파일하기
+glCompileShader(vertexShader);
+```
