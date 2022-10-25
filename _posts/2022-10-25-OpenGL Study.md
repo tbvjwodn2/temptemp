@@ -23,8 +23,9 @@ VBO는 특별한거 없고 그냥 GPU가 접근할 수있는 a buffer of memory�
 VBO를 여러개 만들어서 GPU에 놓는다고 생각해보자
 
 VBO는 그저 데이터 버퍼일 뿐이다. 지혼자 할 수 있는게 없는데
-GPU가 이 데이터를 어떻게 이용할지 명령을 내려줘야하는데, 이때 VAO가
+GPU가 이 데이터를 어떻게 이용할지 명령을 내려줘야하는데,  이때 VAO가
 Vertex Array Object(VAO)가 GPU에서 VBO를 어떻게 처리할지에 대한 정보를 들고 있다
+
 
 > The Vertex Array Object(VAO) stores how opengl should interpret a set of VBOs.
 > In short words, VBO is an array of raw data, when VAO is an array of ATTRIBUTES - an instruction for shader program how to use the data.
@@ -51,3 +52,10 @@ glGenVertexArrays
 
 Vertexs Shader 단계에서 GPU는 메모리에 남아있는 모든 Vertex Data를 처리하는데,
 이 메모리를 관리하는 것이 Vertex Array Object(VAO)라고 한다
+
+
+쉐이더 만들기 과정 순서
+
+| 빈 쉐이더 만들기 - glCreateShader |   ex) glCreateShader(GL_VERTEX_SHADER)|
+| 빈 쉐이더에 GLSL로 작성한 쉐이더 코드 넣기 glShaderSource   | ex)  |
+3. 
