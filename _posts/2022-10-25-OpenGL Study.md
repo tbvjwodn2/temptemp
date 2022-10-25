@@ -54,7 +54,7 @@ Vertexs Shader 단계에서 GPU는 메모리에 남아있는 모든 Vertex Data�
 이 메모리를 관리하는 것이 Vertex Array Object(VAO)라고 한다
 
 
-쉐이더 만들기 과정 순서
+h1 쉐이더 만들기 과정 순서
 ```cpp
 // 1. 쉐이더 만들기
 GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
