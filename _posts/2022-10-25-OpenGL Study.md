@@ -73,33 +73,50 @@ Vertexs Shader 단계에서 GPU는 메모리에 남아있는 모든 Vertex Data�
 ## 쉐이더 만들기 과정 순서
 ```cpp
 // 1. 쉐이더 만들기
+// 빈 쉐이더 오브젝트를 만들고, ID를 return 한다
+
 GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+// 부가설명
+// glCreateShader creates an empty shader object and returns a non-zero value by which it can be referenced. A shader object is used to maintain the source code strings that define a shader.
  
 
+
 // 2. GLSL로 작성한 쉐이더 코드 넣기
+// glsl로 작성된 string array 쉐이더 소스 코드를 만들어진 쉐이더 오브젝트에 넣어준다
+
 glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
+// 부가설명
+// glShaderSource sets the source code in shader to the source code in the array of strings specified by string. Any source code previously stored in the shader object is completely replaced.
+
 
 // 3. Machine 언어로 컴파일하기
 glCompileShader(vertexShader);
+
 ```
-#### glCreateShader
-glCreateShader creates an empty shader object and returns a non-zero value by which it can be referenced. A shader object is used to maintain the source code strings that define a shader.
+
 
 
 ## 만들어진 쉐이더 OpenGL Shader 프로그램에 장착시키기
 ```cpp
 // 1. Shader프로그램 만들기
+// 빈 program object를 만든 후 레퍼런스 할 수 있는 ID를 리턴한다.
 GLuint shaderProgram = glCreateProgram();
+// 부가설명
+// glCreateShader creates an empty shader object and returns a non-zero value by which it can be referenced. A shader object is used to maintain the source code strings that define a shader.
 
-// 2. 만들어진 쉐이더를 Shader Program object에 붙이기
+
+// 2. 컴파일된 쉐이더를 Shader Program object에 붙이기
 glAttachShader(shaderProgram, vertexShader);
 glAttachShader(shaderProgram, fragmentShader);
+
 
 // 3-1. GL_VERTEX_SHADER을 Program에 붙이면, vertex Processor에서 돌아갈 Excutable을 만듬
 // 3-2. GL_FRAGMENT_SHADER을 Program에 붙이면, fragment processor에서 돌아갈 Excutable을 만듬
 glLinkProgram(shaderProgram);
 
+
 // 4. 더 이상 필요 없어진, 메모리에 있는 Vertex Shader와 Fragment Shader를 지워주기
 glDeleteShader(vertexShader);
 glDeleteShader(fragmentShader);
+
 ```
