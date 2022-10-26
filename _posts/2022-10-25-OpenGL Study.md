@@ -74,6 +74,7 @@ Vertexs Shader 단계에서 GPU는 메모리에 남아있는 모든 Vertex Data�
 ```cpp
 // 1. 쉐이더 만들기
 GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
+ 
 
 // 2. GLSL로 작성한 쉐이더 코드 넣기
 glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -81,6 +82,9 @@ glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
 // 3. Machine 언어로 컴파일하기
 glCompileShader(vertexShader);
 ```
+#### glCreateShader
+glCreateShader creates an empty shader object and returns a non-zero value by which it can be referenced. A shader object is used to maintain the source code strings that define a shader.
+
 
 ## 만들어진 쉐이더 OpenGL Shader 프로그램에 장착시키기
 ```cpp
