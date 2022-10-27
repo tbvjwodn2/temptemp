@@ -4,6 +4,8 @@ date: 2022-10-25 05:00:00
 categories: opengl
 ---
 
+#미완성 
+
 Vertex를 그리기 위해서는 이해해야 될것이 있다
 
 OpenGL API기준이다
