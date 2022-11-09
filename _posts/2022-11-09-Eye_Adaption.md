@@ -24,10 +24,27 @@ Directional Light의 Intensity를 0.1이나 10이나, 50이나 차이가 없기 
 
 이것이 바로 Min Ev100과 Max Ev100의 기능이다
 어떠한 밝기에 상관없이 화면의 평균 Luminance값을 50%로 맞추려고 하는것..
-
+ 
 이렇게 되면, 생각날것이
 UE4, UE5에서 갑자기 밝은 것을 보게되면, 주변 모든것들이 어두워지는 현상
-또는 어두운 것을 보면 모든것들이 밝아지는 현상
+또는 어두운 것을 보면 모든것들이 밝아지는 현상을 자주 목격한다
+
+이런 것들은 너무 밝거나, 너무 어두워서 Exposure계산에 포함 시키고 싶지 않다
+예를 들면, 태양의 밝기 값이 100인데 주변 평균 밝기 값이 10이라면, 평균치가 55가 되는데,
+이렇게 되면, 평균 밝기가 높기때문에, Eye Adaption이 주변을 전부 어둡게 만들게된다
+
+그렇다면 이제, 너무 밝은것, 또는 너무 어두운것들을 Exposure 계산에서 빼봐야하는데,
+밑의 사진에서 Advanced의 Low Percent와 High Percent를 이용하는 방법이다
+
+Low Percent와 High Percent는 Histogram Min Ev100과 Histogram Max Ev100의 값에 영향을 받는다
+
+Histogram Min Ev100 ~~ Histogram Max Ev100를 조절하여 밑의 사진과 같이, Histogram자체를 Clipping
+
+<img width="1008" alt="image" src="https://user-images.githubusercontent.com/45751396/200778406-6ef8132e-45aa-449e-8220-e6b69e1f509e.png">
+
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/45751396/200777860-07cda334-8d60-471c-ad10-a5347927ca0b.png">
+
+
 
 
 
